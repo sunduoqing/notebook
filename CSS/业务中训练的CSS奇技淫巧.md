@@ -15,27 +15,28 @@
 只需要把行内元素包裹在一个属性display为block的父层元素中，并且把父层元素添加如下属性即可：
 ```
 .parent {
-    text-align:center;
+  display: block;
+  text-align: center;
 }
-
 ```
 
 ### 2、块状元素解决方案
 ```
-.item {
-    /* 这里可以设置顶端外边距 */
-    margin: 10px auto;
+.child {
+  /* 这里可以设置顶端外边距 */
+  margin: 10px auto;
 }
-
 ```
 
 ### 3、多个块状元素解决方案
 将元素的display属性设置为inline-block，并且把父元素的text-align属性设置为center即可:
 ```
 .parent {
-    text-align:center;
+  text-align: center;
 }
-
+.child {
+  display: inline-block;
+}
 ```
 
 ### 4、多个块状元素解决方案 (使用flexbox布局实现)
