@@ -1,4 +1,5 @@
 # 业务中训练的 CSS 奇技淫巧
+> CSS1
 * [一、水平居中](一、水平居中)
 * [二、垂直居中](二、垂直居中)
 * [三、水平垂直居中](三、水平垂直居中)
@@ -6,6 +7,10 @@
 * [五、文本溢出加省略号](五、文本溢出加省略号)
 * [六、CSS层级](六、CSS层级)
 * [七、透明度详解](七、透明度详解)
+* [八、display:table-cell的妙用](八、display:table-cell的妙用)
+* [九、vertical-align的原理](十、vertical-align的原理)
+* [十、CSS实现滚动](九、CSS实现滚动)
+* [十一、Android浏览器文本垂直居中问题](十一、Android浏览器文本垂直居中问题)
 
 
 ## 一、水平居中
@@ -43,10 +48,9 @@
 使用flexbox布局，只需要把待处理的块状元素的父元素添加属性display:flex及justify-content:center即可:
 ```
 .parent {
-    display:flex;
-    justify-content:center;
+  display:flex;
+  justify-content:center;
 }
-
 ```
 
 顺便介绍一下flex布局的justify-content属性
@@ -62,15 +66,13 @@ justify-content属性定义了项目在主轴上的对齐方式。
 ### 1、单行的行内元素解决方案
 ```
 .parent {
-    background: #222;
-    height: 200px;
+  height: 200px;
 }
  
 /* 以下代码中，将a元素的height和line-height设置的和父元素一样高度即可实现垂直居中 */
 a {
-    height: 200px;
-    line-height:200px; 
-    color: #FFF;
+  height: 200px;
+  line-height:200px; 
 }
 ```
 
@@ -78,40 +80,47 @@ a {
 组合使用display:table-cell和vertical-align:middle属性来定义需要居中的元素的父容器元素生成效果，如下：
 ```
 .parent {
-    background: #222;
-    width: 300px;
-    height: 300px;
-    /* 以下属性垂直居中 */
-    display: table-cell;
-    vertical-align:middle;
+  height: 300px;
+  /* 以下属性垂直居中 */
+  display: table-cell;
+  vertical-align:middle;
 }
 ```
 
-### 3、已知高度的块状元素解决方案
+### 3、若父容器下只有一个元素，且父元素设置了高度
 ```
-parentElement{
-        height:xxx;
-    }
-.childElement {
-      position: relative;
-      top: 50%;
-      transform: translateY(-50%);
-    }
+.parent {
+  height:xxx;
+}
+.child {
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+}
 ```
 
 ### 4、不知道自己高度和父容器高度的情况下, 利用绝对定位只需要以下三行：
 ```
-parentElement{
-        position:relative;
-    }
+.parent {
+  position:relative;
+}
 
- childElement{
-        position: absolute;
-        top: 50%;
-        transform: translateY(-50%);
-
- }
+.child {
+   position: absolute;
+   top: 50%;
+   transform: translateY(-50%);
+}
  ```
+
+### 5、利用 flex 布局实现
+```
+.parent{
+    display: flex;
+    align-items: center;
+    /* 注意这里需要设置高度来查看垂直居中效果 */
+    height: 300px;
+}
+```
 
 ## 三、水平垂直居中
 ### 1、已知高度和宽度的元素解决方案1
@@ -162,7 +171,7 @@ parentElement{
 ```
 
 ---
-VIP中实现背景图效果：
+Vxx中实现背景图效果：
 ```
 .product-item-inner::after {
     content: "";
@@ -178,7 +187,7 @@ VIP中实现背景图效果：
     box-sizing: border-box;
   }
 ```
-待确认思路：为了实现若是没有列表的时候坑位任然有背景图，上一个坑位的after覆盖下一个坑位背景，但是利用那个垂直居中的代码实现，发现会覆盖住本身坑位。所以是不是渲染问题，所以坑位after元素先渲染，下一个坑位才开始渲染，元素就会覆盖背景图？
+待确认思路：为了实现若是没有列表的时候坑位仍然有背景图，上一个坑位的after覆盖下一个坑位背景，但是利用那个垂直居中的代码实现，发现会覆盖住本身坑位。所以是不是渲染问题，所以坑位after元素先渲染，下一个坑位才开始渲染，元素就会覆盖背景图？
 
 ## 四、清除浮动
 
@@ -194,7 +203,7 @@ float属性 取值为 left/right
 这个属性原本不是用来布局的，而是用来做文字环绕的，但是后来人们发现做布局也不错，就一直这么用了，甚至有些时候都忘了用他做文字环绕 
 
 ### 3、相对定位 relative 
-元素会相对于它原来的位置偏移某个距离，改变元素位置后，元素原本的空间依然会被保留
+元素会相对于它原来的位置偏移某个距离，改变元素位置后，原本的元素**占据空间**
 
 ### 4、绝对定位 absolute 
 如果元素被设置为绝对定位的话，将具备以下几个特征   
@@ -326,6 +335,7 @@ inline-level box， display属性为inline, inline-block, inline-table的元素�
     <div class="bottom">下</div>
 </body>
 ```
+![alt](./img/CSS1-1.jpg)
 ```
 <!--每个元素的margin box的左边， 与包含块border box的左边相接触(对于从左往右的格式化，否则相反)。即使存在浮动也是如此。 
 我们可以看到，虽然有浮动的元素top，但是bottom的左边依然与包含块的左边相接触。-->
@@ -347,6 +357,7 @@ inline-level box， display属性为inline, inline-block, inline-table的元素�
     <div class="bottom"></div>
 </body>
 ```
+![alt](./img/CSS1-2.jpg)
 ```
 <!--BFC的区域不会与float box重叠。 
 看代码和效果图，可以看出，这次的代码比上面的代码多了一行overflow:hidden;用这行代码触发新的BFC后，由于这个新的BFC不会与浮动的top重叠，所以bottom的位置改变了-->
@@ -369,6 +380,7 @@ inline-level box， display属性为inline, inline-block, inline-table的元素�
     <div class="bottom"></div>
 </body>
 ```
+![alt](./img/CSS1-3.jpg)
 ```
 <!--计算BFC的高度时，浮动元素的高度也参与计算。 
 到此我们应该是解决了上面的所有疑问了。-->
@@ -391,9 +403,10 @@ inline-level box， display属性为inline, inline-block, inline-table的元素�
     </div>
 </body>
 ```
+![alt](./img/CSS1-4.png)
 
 ---
-VIP清除浮动方式
+VXX清除浮动方式
 ```
 .clearfix:after {
   visibility: hidden;
@@ -458,4 +471,161 @@ text-overflow:ellipsis;
 ```
 background-color:#000000;/* IE6和部分IE7内核的浏览器(如QQ浏览器)下颜色被覆盖 */
 background-color:rgba(0,0,0,0.2); /* IE6和部分IE7内核的浏览器(如QQ浏览器)会读懂，但解析为透明 */
+```
+
+## 八、display:table-cell的妙用
+### 1、大小不固定的图片和多行文字的垂直水平居中
+```
+<div class="table">
+  <img src="https://placehold.it/150x100">
+</div>
+
+.table {
+    width: 200px;
+    height: 200px;
+    border: 1px solid red;
+    display: table-cell;
+    text-align: center;
+    vertical-align: middle;
+} 
+.table img {
+  vertical-align:middle;
+}
+```
+
+### 2、实现两栏自适应布局
+```
+<div class="main">
+  <img src="http://placehold.it/150X150"></img>
+  <div class="text">
+   <p>aaaaaa</p>
+   <p>bbbbbbbb</p>
+   <p>啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦</p>
+  </div>
+</div>
+```
+```
+.main {
+  display: table;
+}
+img {
+  float: left;
+}
+.text {
+  display: table-cell;
+}
+.main:after,.main:before {
+  display: table;
+  content: "";
+  clear: both;
+}
+```
+
+### 3、实现等高布局
+```
+<div class="wrap">
+  <div class="main">
+     <div>aaa</div>
+     <div>bbb</div>
+     <div>ccc</div>
+  </div>
+</div>
+
+.main {
+  display: table;
+}
+ 
+.main div {
+  display: table-cell;
+}
+```
+
+### 插播一个进度条
+> 该进度条需要右边的字固定，左边的进度条自适应右边的字
+
+![alt](CSS1-5.jpg)
+```
+.prepay-progress-box {
+    width: 100%;
+    height: 0.16rem;
+    display:table;
+    .sold-out {
+      float: right;
+      white-space: nowrap;
+    }
+    .progress-wrapper {
+      width: 100%;
+      display: table-cell;
+      position: relative;
+      .progress {
+        width:100%;
+        height: 0.06rem;
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        background-color: rgba(1,1,1,0.14);
+        border-radius: 0.08rem;
+        i {
+          position: absolute;
+          top:0;
+          left: 0;
+          height: 100%;
+          background-color: $mst-c1;
+          border-radius: 0.08rem;
+        }
+      }
+    }
+  }
+```
+这里没有添加去浮动，是因为自适应的元素设置了高度
+
+
+## 九、vertical-align的原理
+
+## 十、CSS实现滚动
+-webkit-overflow-scrolling 属性控制元素在移动设备上是否使用滚动回弹效果.  
+* auto: 使用普通滚动, 当手指从触摸屏上移开，滚动会立即停止。  
+* touch: 使用具有回弹效果的滚动, 当手指从触摸屏上移开，内容会继续保持一段时间的滚动效果。继续滚动的速度和持续的时间和滚动手势的强烈程度成正比。同时也会创建一个新的堆栈上下文。
+```
+.box {
+  width: 100%;
+  overflow-x: scroll;
+  -webkit-overflow-scrolling: touch;
+  white-space: nowrap;
+}
+.item {
+  display: inline-block;
+}
+```
+```
+html, body {
+  height: 100%;
+}
+main {
+  padding: 50px 0;
+  height: 100%;
+  overflow-y: scroll;
+  -webkit-overflow-scrolling: touch;
+}
+```
+
+## 十一、Android浏览器文本垂直居中问题
+在开发中，我们常使用 line-height 属性来实现文本的垂直居中，但是在安卓浏览器渲染中有一个常见的问题，就是对于小于12px的字体使用 line-height 属性进行垂直居中的时候，渲染出来的效果并不是文字垂直居中，而是会偏上一些。
+
+原因：字体大小小于 12px
+### 解决方法一
+```
+<div class="container">
+  <span class="content">testtesttesttesttest</span>
+</div>
+
+.container {
+    display: table;
+}
+.content {
+    background-color: gray;
+    font-size: 10px;
+    display: table-cell;
+    vertical-align: middle;
+}
 ```
