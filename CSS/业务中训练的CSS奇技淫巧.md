@@ -335,7 +335,7 @@ inline-level box， display属性为inline, inline-block, inline-table的元素�
     <div class="bottom">下</div>
 </body>
 ```
-![alt](./img/CSS1-1.jpg)
+![alt](./imgs/CSS1-1.jpg)
 ```
 <!--每个元素的margin box的左边， 与包含块border box的左边相接触(对于从左往右的格式化，否则相反)。即使存在浮动也是如此。 
 我们可以看到，虽然有浮动的元素top，但是bottom的左边依然与包含块的左边相接触。-->
@@ -357,7 +357,7 @@ inline-level box， display属性为inline, inline-block, inline-table的元素�
     <div class="bottom"></div>
 </body>
 ```
-![alt](./img/CSS1-2.jpg)
+![alt](./imgs/CSS1-2.jpg)
 ```
 <!--BFC的区域不会与float box重叠。 
 看代码和效果图，可以看出，这次的代码比上面的代码多了一行overflow:hidden;用这行代码触发新的BFC后，由于这个新的BFC不会与浮动的top重叠，所以bottom的位置改变了-->
@@ -380,7 +380,7 @@ inline-level box， display属性为inline, inline-block, inline-table的元素�
     <div class="bottom"></div>
 </body>
 ```
-![alt](./img/CSS1-3.jpg)
+![alt](./imgs/CSS1-3.jpg)
 ```
 <!--计算BFC的高度时，浮动元素的高度也参与计算。 
 到此我们应该是解决了上面的所有疑问了。-->
@@ -403,7 +403,7 @@ inline-level box， display属性为inline, inline-block, inline-table的元素�
     </div>
 </body>
 ```
-![alt](./img/CSS1-4.png)
+![alt](./imgs/CSS1-4.png)
 
 ---
 VXX清除浮动方式
@@ -434,6 +434,23 @@ display: -webkit-box;
 overflow: hidden;
 text-overflow:ellipsis;
 ```
+---
+场景：需要当字体只占一行时候下面的元素往上顶，两行的时候换行显示两行并有省略号
+```
+height: auto;
+max-height: 0.46rem; /* 两行时候的高度 */
+display: -webkit-box;  
+-webkit-box-orient: vertical;
+-webkit-line-clamp: 2;
+white-space: normal; 
+line-height: 0.23rem;
+font-weight: bold;
+font-size: 0.16rem;
+word-break: break-all;
+```
+
+![alt](./imgs/CSS1-6.jpg)
+![alt](./imgs/CSS1-7.jpg)
 
 ## 六、CSS层级
 ### 1、层叠上下文
