@@ -12,3 +12,4 @@
 
 ## 工具配置
 * [《深入浅出 Webpack》](http://webpack.wuhaolin.cn/)
+* [Lodash](https://lodash.com)
