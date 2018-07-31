@@ -9,6 +9,7 @@
   * [类型](/JavaScript/类型.md)
   * [闭包](/JavaScript/闭包.md)
   * [原型](/JavaScript/原型.md)
+  * [作用域](#/JavaScript/作用域.md)
  
 
 ## 推荐阅读
