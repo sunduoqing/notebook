@@ -13,14 +13,21 @@
   * [拷贝](/JavaScript/拷贝.md)
   * [异步](/JavaScript/异步.md)
   * [继承](/JavaScript/继承.md)
+  * [数组](/JavaScript/数组.md)
   * [作用域](/JavaScript/作用域.md)
+  * [Promise](/JavaScript/Promise.md)
+  * [Generator](/JavaScript/Generator.md)
   * [防抖和节流](/JavaScript/防抖和节流.md)
+  * [正则表达式](/JavaScript/正则表达式.md)
+
+* 浏览器
+  * [事件机制](/browser/事件机制.md)
 
 * 业务相关
   * [发布](/business/发布.md)
 
 * 面试集锦
-  * [一道闭包面试题](/interview/一道闭包面试题.md))
+  * [一道闭包面试题](/interview/一道闭包面试题.md)
   * [一道奇葩的跟 new 有关的面试题](/interview/一道奇葩的跟new有关的面试题.md)
 
 ## 百度脑图

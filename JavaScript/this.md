@@ -200,15 +200,17 @@ getValue.apply(a, ['yck', '24'])
 * 不传入第一个参数，那么默认为 window
 * 改变了 this 指向，让新的对象可以执行该函数。那么思路是否可以变成给新的对象添加一个函数，然后在执行完以后删除？
 
-```
+```js
 Function.prototype.myCall = function (context) {
   var context = context || window
   // 给 context 添加一个属性
   // getValue.call(a, 'yck', '24') => a.fn = getValue
+  // this 由动态调用决定，所以函数调用该 mycall 函数，即this
   context.fn = this
   // 将 context 后面的参数取出来
   var args = [...arguments].slice(1)
   // getValue.call(a, 'yck', '24') => a.fn('yck', '24')
+  // 执行完毕返回结果给 result
   var result = context.fn(...args)
   // 删除 fn
   delete context.fn
@@ -225,6 +227,7 @@ Function.prototype.myApply = function (context) {
   // 需要判断是否存储第二个参数
   // 如果存在，就将第二个参数展开
   if (arguments[1]) {
+    // ...将类数组对象拆开成独立的参数
     result = context.fn(...arguments[1])
   } else {
     result = context.fn()
@@ -236,9 +239,30 @@ Function.prototype.myApply = function (context) {
 ```
 bind 和其他两个方法作用也是一致的，只是该方法会返回一个函数。并且我们可以通过 bind 实现柯里化。
 
+bind()方法创建一个新的函数, 当被调用时，将其this关键字设置为提供的值，在调用新函数时，在任何提供之前提供一个给定的参数序列。
+
+```js
+this.x = 9; 
+var module = {
+  x: 81,
+  getX: function() { return this.x; }
+};
+
+module.getX(); // 返回 81
+
+var retrieveX = module.getX;
+retrieveX(); // 返回 9, 在这种情况下，"this"指向全局作用域
+
+// 创建一个新函数，将"this"绑定到module对象
+// 新手可能会被全局的x变量和module里的属性x所迷惑
+var boundGetX = retrieveX.bind(module);
+boundGetX(); // 返回 81
+```
+
 同样的，也来模拟实现下 bind
 ```
 Function.prototype.myBind = function (context) {
+  // 确保调用 myBind 的是函数
   if (typeof this !== 'function') {
     throw new TypeError('Error')
   }
@@ -247,6 +271,8 @@ Function.prototype.myBind = function (context) {
   // 返回一个函数
   return function F() {
     // 因为返回了一个函数，我们可以 new F()，所以需要判断
+    // 返回函数调用的 this 和原本的 this 不一定相同，比如上栗
+    // 一个是 windows 一个是 module
     if (this instanceof F) {
       return new _this(...args, ...arguments)
     }

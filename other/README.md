@@ -8,8 +8,12 @@
 * [《深入理解ES6》教程学习笔记](https://github.com/hyy1115/ES6-learning)
 * [JavaScript 算法与数据结构](https://github.com/trekhleb/javascript-algorithms/blob/master/README.zh-CN.md)
 
+## 推荐书单
+* [BOOKLIST](https://github.com/CyC2018/Interview-Notebook/blob/master/BOOKLIST.md)
+
 ## 面经集锦
 * [InterviewMap](https://yuchengkai.cn/docs/zh/)
+* [Interview-Notebook](https://github.com/CyC2018/Interview-Notebook)
 * [fex-team](https://github.com/fex-team/interview-questions)
 
 ## 工具配置
