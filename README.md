@@ -1,7 +1,7 @@
 # notebook
 不断思考何为知识体系
 
-## 基础扎实
+## 前端基础
 * CSS
   * [业务中训练的 CSS 奇技淫巧](/CSS/业务中训练的CSS奇技淫巧.md)
 
@@ -25,6 +25,20 @@
   * [存储](/browser/存储.md)
   * [事件循环](/browser/事件循环.md)
   * [事件机制](/browser/事件机制.md)
+  * [渲染机制](/browser/渲染机制.md)
+
+* 性能
+  * [网络相关](/performance/网络相关.md)
+  * [文件优化](/performance/文件优化.md)
+  * [优化渲染过程](/performance/优化渲染过程.md)
+
+* 安全
+  * [XSS](/safety/XSS.md)
+  * [CSRF](/safety/CSRF.md)
+  * [密码安全](/safety/密码安全.md)
+
+* 框架通识
+  * [MVVM](/frame/MVVM.md)
 
 * 业务相关
   * [发布](/business/发布.md)
@@ -32,6 +46,10 @@
 * 面试集锦
   * [一道闭包面试题](/interview/一道闭包面试题.md)
   * [一道奇葩的跟 new 有关的面试题](/interview/一道奇葩的跟new有关的面试题.md)
+
+## 读书笔记
+* [《高性能的JavaScript》](/book/高性能的JavaScript.md)
+* []()
 
 ## 百度脑图
 * [归档](http://naotu.baidu.com/file/6084a7cf12c67a46a7a97e62f09151ea?token=441944774bc5f437)
