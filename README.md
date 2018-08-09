@@ -12,6 +12,7 @@
   * [原型](/JavaScript/原型.md)
   * [拷贝](/JavaScript/拷贝.md)
   * [异步](/JavaScript/异步.md)
+  * [对象](/JavaScript/对象.md)
   * [继承](/JavaScript/继承.md)
   * [数组](/JavaScript/数组.md)
   * [作用域](/JavaScript/作用域.md)
@@ -49,7 +50,7 @@
 
 ## 读书笔记
 * [《高性能的JavaScript》](/book/高性能的JavaScript.md)
-* []()
+* [《学习JavaScript数据结构与算法》](/book/学习JavaScript数据结构与算法.md)
 
 ## 百度脑图
 * [归档](http://naotu.baidu.com/file/6084a7cf12c67a46a7a97e62f09151ea?token=441944774bc5f437)
