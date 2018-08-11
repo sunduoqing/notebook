@@ -7,7 +7,7 @@
 * [五、文本溢出加省略号](五、文本溢出加省略号)
 * [六、CSS层级](六、CSS层级)
 * [七、透明度详解](七、透明度详解)
-* [八、display:table-cell的妙用](八、display:table-cell的妙用)
+* [八、display：table-cell的妙用](八、displaytable-cell的妙用)
 * [九、vertical-align的原理](十、vertical-align的原理)
 * [十、CSS实现滚动](九、CSS实现滚动)
 * [十一、Android浏览器文本垂直居中问题](十一、Android浏览器文本垂直居中问题)
@@ -490,7 +490,7 @@ background-color:#000000;/* IE6和部分IE7内核的浏览器(如QQ浏览器)下
 background-color:rgba(0,0,0,0.2); /* IE6和部分IE7内核的浏览器(如QQ浏览器)会读懂，但解析为透明 */
 ```
 
-## 八、display:table-cell的妙用
+## 八、displaytable-cell的妙用
 ### 1、大小不固定的图片和多行文字的垂直水平居中
 ```
 <div class="table">
@@ -560,7 +560,8 @@ img {
 ### 插播一个进度条
 > 该进度条需要右边的字固定，左边的进度条自适应右边的字
 
-![alt](CSS1-5.jpg)
+![alt](./imgs/CSS1-5.jpg)
+
 ```
 .prepay-progress-box {
     width: 100%;
