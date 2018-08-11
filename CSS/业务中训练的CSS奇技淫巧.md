@@ -1,19 +1,19 @@
 # 业务中训练的 CSS 奇技淫巧
 > CSS1
-* [一、水平居中](一、水平居中)
-* [二、垂直居中](二、垂直居中)
-* [三、水平垂直居中](三、水平垂直居中)
-* [四、清除浮动](四、清除浮动)
-* [五、文本溢出加省略号](五、文本溢出加省略号)
-* [六、CSS层级](六、CSS层级)
-* [七、透明度详解](七、透明度详解)
-* [八、display：table-cell的妙用](八、displaytable-cell的妙用)
-* [九、vertical-align的原理](十、vertical-align的原理)
-* [十、CSS实现滚动](九、CSS实现滚动)
-* [十一、Android浏览器文本垂直居中问题](十一、Android浏览器文本垂直居中问题)
+* [一、水平居中](一水平居中)
+* [二、垂直居中](二垂直居中)
+* [三、水平垂直居中](三水平垂直居中)
+* [四、清除浮动](四清除浮动)
+* [五、文本溢出加省略号](五文本溢出加省略号)
+* [六、CSS层级](六CSS层级)
+* [七、透明度详解](七透明度详解)
+* [八、display：table-cell的妙用](八displaytable-cell的妙用)
+* [九、vertical-align的原理](十vertical-align的原理)
+* [十、CSS实现滚动](九CSS实现滚动)
+* [十一、Android浏览器文本垂直居中问题](十一Android浏览器文本垂直居中问题)
 
 
-## 一、水平居中
+## 一水平居中
 > 行内元素display：inline，块级元素display：block
 
 ### 1、行内元素解决方案
@@ -62,7 +62,7 @@ justify-content属性定义了项目在主轴上的对齐方式。
 * space-between：两端对齐，项目之间的间隔都相等。
 * space-around：每个项目两侧的间隔相等。所以，项目之间的间隔比项目与边框的间隔大一倍。
 
-## 二、垂直居中
+## 二垂直居中
 ### 1、单行的行内元素解决方案
 ```
 .parent {
@@ -122,7 +122,7 @@ a {
 }
 ```
 
-## 三、水平垂直居中
+## 三水平垂直居中
 ### 1、已知高度和宽度的元素解决方案1
 这是一种不常见的居中方法，可自适应，比方案2更智能，如下：
 ```
@@ -189,7 +189,7 @@ Vxx中实现背景图效果：
 ```
 待确认思路：为了实现若是没有列表的时候坑位仍然有背景图，上一个坑位的after覆盖下一个坑位背景，但是利用那个垂直居中的代码实现，发现会覆盖住本身坑位。所以是不是渲染问题，所以坑位after元素先渲染，下一个坑位才开始渲染，元素就会覆盖背景图？
 
-## 四、清除浮动
+## 四清除浮动
 
 ### 1、普通流定位 static（默认方式） 
 普通流定位，又称为文档流定位，是页面元素的默认定位方式      
@@ -418,7 +418,7 @@ VXX清除浮动方式
 }
 ```
 
-## 五、文本溢出加省略号
+## 五文本溢出加省略号
 ### 1、单行文本溢出增加省略号
 ```
 width:300px;    
@@ -452,7 +452,7 @@ word-break: break-all;
 ![alt](./imgs/CSS1-6.jpg)
 ![alt](./imgs/CSS1-7.jpg)
 
-## 六、CSS层级
+## 六CSS层级
 ### 1、层叠上下文
 > 如果一个元素含有层叠上下文，我们可以理解为这个元素在z轴上就“高人一等”。
 
@@ -476,7 +476,7 @@ word-break: break-all;
 
 ![image](https://image.zhangxinxu.com/image/blog/201601/2016-01-09_211116.png)
 
-## 七、透明度详解
+## 七透明度详解
 * css3的opacity:x，x 的取值从 0 到 1，如opacity: 0.8
 * css3的rgba(red, green, blue, alpha)，alpha的取值从 0 到 1，如rgba(255,255,255,0.8)
 
@@ -490,7 +490,7 @@ background-color:#000000;/* IE6和部分IE7内核的浏览器(如QQ浏览器)下
 background-color:rgba(0,0,0,0.2); /* IE6和部分IE7内核的浏览器(如QQ浏览器)会读懂，但解析为透明 */
 ```
 
-## 八、displaytable-cell的妙用
+## 八displaytable-cell的妙用
 ### 1、大小不固定的图片和多行文字的垂直水平居中
 ```
 <div class="table">
@@ -598,7 +598,7 @@ img {
 这里没有添加去浮动，是因为自适应的元素设置了高度
 
 
-## 九、vertical-align的原理
+## 九vertical-align的原理
 
 ## 十、CSS实现滚动
 -webkit-overflow-scrolling 属性控制元素在移动设备上是否使用滚动回弹效果.  
@@ -631,7 +631,7 @@ main {
 在开发中，我们常使用 line-height 属性来实现文本的垂直居中，但是在安卓浏览器渲染中有一个常见的问题，就是对于小于12px的字体使用 line-height 属性进行垂直居中的时候，渲染出来的效果并不是文字垂直居中，而是会偏上一些。
 
 原因：字体大小小于 12px
-### 解决方法一
+### table布局 在元素外再包一层，使用表格布局
 ```
 <div class="container">
   <span class="content">testtesttesttesttest</span>
@@ -645,5 +645,18 @@ main {
     font-size: 10px;
     display: table-cell;
     vertical-align: middle;
+}
+```
+
+###  改变字体大小 最直接的方法就是改变字体大小让它大于 12px 能够正常居中，如果页面对字体大小要求比较严格的话，可以先将原来包括 font-size 在内的属性放大两倍，再用 scale 缩小一倍，这样测试之后也是可行的：
+```
+.content {
+    display: inline-block;
+    height: 40px;
+    background-color: gray;
+    line-height: 40px;
+    font-size: 20px;
+    transform: scale(0.5);
+    transform-origin: 0% 0%;
 }
 ```
