@@ -62,7 +62,9 @@
 ## 笔试面试
 * 面试集锦
   * [一道闭包面试题](/interview/一道闭包面试题.md)
-  * [一道奇葩的跟 new 有关的面试题](/interview/一道奇葩的跟new有关的面试题.md)
+  * [一道跟 new 有关的面试题](/interview/一道跟new有关的面试题.md)
+  * [一道跟 promise 有关的面试题](/interview/一道跟promise有关的面试题.md)
+  * [一道跟 setTimeout 有关的面试题](/interview/一道跟setTimeout有关的面试题.md)
 
 * 笔试总结
   * [今日头条2017秋招前端工程师笔试试卷](/test/今日头条2017秋招前端工程师笔试试卷.md)
