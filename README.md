@@ -48,6 +48,8 @@
 
 * 业务相关
   * [发布](/business/发布.md)
+  * [埋点与用户行为分析](/business/埋点.md)
+  * [网站流量指标与网站流量统计](/business/网站流量指标.md)
 
 ## 读书笔记
 * [《高性能的JavaScript》](/book/高性能的JavaScript.md)
@@ -61,6 +63,8 @@
 
 ## 笔试面试
 * 面试集锦
+  * [0.1加0.2不等于0.3](/interview/0.1加0.2不等于0.3.md)
+  * [React中setState为什么是异步的](/interview/React中setState为什么是异步的.md)
   * [一道闭包面试题](/interview/一道闭包面试题.md)
   * [一道跟 new 有关的面试题](/interview/一道跟new有关的面试题.md)
   * [一道跟 promise 有关的面试题](/interview/一道跟promise有关的面试题.md)
