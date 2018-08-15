@@ -13,7 +13,7 @@
 * [十一、Android浏览器文本垂直居中问题](十一Android浏览器文本垂直居中问题)
 
 
-## 一水平居中
+## 一、水平居中
 > 行内元素display：inline，块级元素display：block
 
 ### 1、行内元素解决方案
