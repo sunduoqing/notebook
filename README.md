@@ -48,8 +48,8 @@
 
 * 业务相关
   * [发布](/business/发布.md)
-  * [埋点与用户行为分析](/business/埋点.md)
-  * [网站流量指标与网站流量统计](/business/网站流量指标.md)
+  * [埋点与用户行为分析](/business/埋点与用户行为分析.md)
+  * [网站流量指标与网站流量统计](/business/网站流量指标与网站流量统计.md)
 
 ## 读书笔记
 * [《高性能的JavaScript》](/book/高性能的JavaScript.md)
